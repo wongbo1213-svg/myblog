@@ -292,7 +292,7 @@
     images.forEach((_, i) => {
       const img = document.createElement("img");
       img.className = "gallery-thumb";
-      img.src = placeholders[i];
+      img.src = getSrc(i);
       img.alt = `缩略图 ${i + 1}`;
       img.addEventListener("error", () => { img.src = placeholders[i]; });
       img.addEventListener("click", () => goTo(i));
@@ -310,7 +310,7 @@
         current = (index + total) % total;
 
         /* Update main image */
-        mainImg.src = placeholders[current];
+        mainImg.src = getSrc(current);
         mainImg.alt = `子谦美照 ${current + 1}`;
         mainImg.onerror = () => { mainImg.src = placeholders[current]; };
 
